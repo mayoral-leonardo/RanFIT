@@ -1,0 +1,45 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "standard"
+  ],
+  "parser": "@javascript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@javascript-eslint",
+    "only-warn"
+  ],
+  "rules": {
+    "keyword-spacing": "warn",
+    "@javascript-eslint/no-unused-vars": "warn",
+    "camelcase": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "@javascript-eslint/ban-ts-comment": "off",
+    "react/display-name": "off",
+    "no-case-declarations": "warn",
+    "no-use-before-define": [
+      0
+    ],
+    "@javascript-eslint/no-use-before-define": [
+      1
+    ],
+    "no-unused-vars": [
+      0
+    ],
+    "no-nested-ternary": "off",
+    "no-unneeded-ternary": "off",
+    "multiline-ternary": "off"
+  }
+}
