@@ -6,6 +6,7 @@ import RunCircleIcon from '@mui/icons-material/RunCircle';
 import PieChartIcon from '@mui/icons-material/PieChart';
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import { Link } from "react-router-dom"
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -98,6 +99,13 @@ export default function Sidebar() {
               title="Classificação"
               to="/leaderboards"
               icon={<LeaderboardIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Usuários"
+              to="/users"
+              icon={<PeopleAltIcon />}
               selected={selected}
               setSelected={setSelected}
             />
