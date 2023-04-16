@@ -1,15 +1,21 @@
 import React from 'react';
 import Dashboard from './views/Dashboard/Dashboard';
 import Topbar from './views/global/Topbar/Topbar';
+import Sidebar from './views/global/Sidebar/Sidebar'
+import { CssBaseline } from "@mui/material";
 
 function App() {
   return (
-    <div className="app">
-      <main className="content">
-        <Topbar/>
-        <Dashboard />
-      </main>
-    </div>
+    <>
+      <CssBaseline />
+      <div className="app">
+        <Sidebar />
+        <main className="content">
+          <Topbar />
+          <Dashboard />
+        </main>
+      </div>
+    </>
   );
 }
 

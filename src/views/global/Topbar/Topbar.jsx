@@ -8,6 +8,7 @@ export default function Topbar() {
       display="flex"
       justifyContent="flex-end"
       backgroundColor="#202A44"
+      width="100%"
       p={2}
     >
       <Box
