@@ -30,6 +30,7 @@
     "no-use-before-define": "warn",
     "no-nested-ternary": "off",
     "no-unneeded-ternary": "off",
-    "multiline-ternary": "off"
+    "multiline-ternary": "off",
+    "react/prop-types": 0
   }
 }
