@@ -3,7 +3,7 @@ import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar"
 import 'react-pro-sidebar/dist/css/styles.css'
 import { Box, Typography } from "@mui/material"
 import RunCircleIcon from '@mui/icons-material/RunCircle';
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import PieChartIcon from '@mui/icons-material/PieChart';
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import { Link } from "react-router-dom"
@@ -90,7 +90,7 @@ export default function Sidebar() {
             <Item
               title="Dashboard"
               to="/"
-              icon={<HomeOutlinedIcon />}
+              icon={<PieChartIcon />}
               selected={selected}
               setSelected={setSelected}
             />
