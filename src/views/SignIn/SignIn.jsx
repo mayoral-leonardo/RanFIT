@@ -35,20 +35,19 @@ export default function SignIn() {
                 className="signin_form_input"
                 id="email-input"
                 variant="outlined"
-                style={{ marginBottom: "5px" }}
+                style={{ marginBottom: "10px" }}
               />
               <InputLabel htmlFor="password-input">Senha</InputLabel>
               <TextField
                 className="signin_form_input"
                 id="password-input"
                 variant="outlined"
-                style={{ marginTop: "5px" }}
+                style={{ marginTop: "10px" }}
               />
             </div>
             <Button variant="contained">Entrar</Button>
           </div>
         </div>
-
       </Box>
     </div>
   )

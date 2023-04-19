@@ -54,7 +54,7 @@
   flex-direction: column;
   width: 100%;
   justify-content: flex-start;
-  transform: translateY(-20%);
+  transform: translateY(-15%);
 }
 
 .signin_form_input {
