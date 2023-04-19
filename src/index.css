@@ -10,6 +10,10 @@ body,
   font-family: "Source Sans Pro", sans-serif;
 }
 
+button {
+  background-color: #202A44 !important;
+}
+
 .app {
   display: flex;
   position: relative;
