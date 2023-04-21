@@ -1,12 +1,13 @@
 import React from "react"
+import { ReactComponent as LogoIcon } from '../../assets/img/icon-logo.svg'
 import { Box, Button, InputLabel, TextField } from "@mui/material"
 import Header from "../../components/Header/Header"
 
 export default function SignIn() {
-  const iconLogo = require('../../assets/img/icon-logo.png')
   return (
     <div className='signin_main_container'>
       <Box
+        className="signin_box"
         display="flex"
         flexDirection="row"
         width="60%"
@@ -14,12 +15,7 @@ export default function SignIn() {
         bgcolor="#FFFFFF"
       >
         <div className='signin_logo_container'>
-          <img
-            src={iconLogo}
-            alt="Logo"
-            width="70%"
-            height="70%"
-          />
+          <LogoIcon className="signin_logo" />
         </div>
 
         <div className='signin_form_container'>
