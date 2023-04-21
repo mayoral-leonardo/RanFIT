@@ -11,7 +11,7 @@ export default function Header({ title, subtitle }) {
         <Box mb="30px">
           <Typography
             variant="h5"
-            color="#00FFFF"
+            color="#216869"
             fontWeight="bold"
             sx={{ mb: "5px" }}
           >

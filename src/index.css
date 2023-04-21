@@ -10,6 +10,22 @@ body,
   font-family: "Source Sans Pro", sans-serif;
 }
 
+button {
+  font-weight: bold !important;
+}
+
+button[type=primary] {
+  background-color: #216869 !important;
+}
+
+button[type=secondary] {
+  background-color: #49A078 !important;
+}
+
+button[type=cancel] {
+  background-color: #FF6961 !important;
+}
+
 .app {
   display: flex;
   position: relative;

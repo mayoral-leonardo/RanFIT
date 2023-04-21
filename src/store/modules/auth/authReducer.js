@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
-  _id: '',
-  name: '',
-  level: ''
+  _id: undefined,
+  name: undefined,
+  level: undefined
 }
 
 export const auth = (state = INITIAL_STATE, action) => {
