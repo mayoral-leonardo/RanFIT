@@ -26,14 +26,14 @@ export default function SignIn() {
             />
 
             <div className='signin_form'>
-              <InputLabel htmlFor="email-input">Email</InputLabel>
+              <InputLabel htmlFor="email-input" style={{fontWeight: "bold"}}>Email</InputLabel>
               <TextField
                 className="signin_form_input"
                 id="email-input"
                 variant="outlined"
                 style={{ marginBottom: "10px" }}
               />
-              <InputLabel htmlFor="password-input">Senha</InputLabel>
+              <InputLabel htmlFor="password-input" style={{fontWeight: "bold"}}>Senha</InputLabel>
               <TextField
                 className="signin_form_input"
                 id="password-input"
@@ -41,7 +41,7 @@ export default function SignIn() {
                 style={{ marginTop: "10px" }}
               />
             </div>
-            <Button variant="contained">Entrar</Button>
+            <Button type="primary" variant="contained">Entrar</Button>
           </div>
         </div>
       </Box>
