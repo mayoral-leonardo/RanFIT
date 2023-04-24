@@ -1,12 +1,11 @@
 import React, { useState } from "react"
+import { useAuth } from "../../../hooks/hooks"
+import getRoutes from "../../../routes/functions/routesFunctions"
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar"
 import 'react-pro-sidebar/dist/css/styles.css'
 import { Box, Typography } from "@mui/material"
 import RunCircleIcon from '@mui/icons-material/RunCircle';
-import PieChartIcon from '@mui/icons-material/PieChart';
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import LeaderboardIcon from '@mui/icons-material/Leaderboard';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import { Link } from "react-router-dom"
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -28,6 +27,12 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 export default function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [selected, setSelected] = useState("Dashboard")
+
+  const auth = useAuth()
+  const userRoutes = getRoutes(auth)
+
+  console.log(userRoutes)
+
   return (
     <Box
       sx={{
@@ -45,7 +50,7 @@ export default function Sidebar() {
         },
         "& .pro-menu-item.active": {
           color: "#00FFFF !important"
-        },
+        }
       }}
     >
 
@@ -88,28 +93,20 @@ export default function Sidebar() {
           )}
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
-            <Item
-              title="Dashboard"
-              to="/"
-              icon={<PieChartIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Classificação"
-              to="/leaderboards"
-              icon={<LeaderboardIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Usuários"
-              to="/users"
-              icon={<PeopleAltIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-
+            {
+              userRoutes.map(route => {
+                return (
+                  <Item
+                    key={route.name}
+                    title={route.name}
+                    to={route.path}
+                    icon={<route.icon/>}
+                    selected={selected}
+                    setSelected={setSelected}
+                  />
+                )
+              })
+            }
           </Box>
         </Menu>
       </ProSidebar>
