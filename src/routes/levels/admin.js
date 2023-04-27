@@ -1,12 +1,15 @@
+import React from "react"
 import Dashboard from "../../views/Dashboard/Dashboard";
 import { routes } from "../routes";
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import DataTable from "../../views/DataTable/DataTable";
 
 const users = {
   path: '/users',
   name: 'Usuários',
   icon: PeopleAltIcon,
-  component: Dashboard,
+  sidebar: true,
+  component: <DataTable/>
 }
 
 export const adminRoutes = [
