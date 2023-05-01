@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header"
 
 export default function Dashboard() {
   return (
-    <Box m="20px">
+    <Box padding="20px">
       <Header
         title="Dashboard"
         subtitle="Lorem ipsum"
