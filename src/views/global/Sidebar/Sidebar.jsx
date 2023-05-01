@@ -94,7 +94,7 @@ export default function Sidebar() {
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             {
-              userRoutes.map(route => {
+              userRoutes.filter(item => item.sidebar).map(route => {
                 return (
                   <Item
                     key={route.name}
