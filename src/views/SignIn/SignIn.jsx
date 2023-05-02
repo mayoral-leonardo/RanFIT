@@ -13,9 +13,11 @@ const mockedUserData = {
 
 export default function SignIn() {
   const dispatch = useDispatch()
+
   function handleSignIn () {
     dispatch(authActions.signIn(mockedUserData))
   }
+  
   return (
     <div className='signin_main_container'>
       <Box

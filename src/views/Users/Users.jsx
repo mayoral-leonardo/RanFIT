@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate  } from 'react-router-dom'
 import { Box, Button } from "@mui/material";
 import TableComponent from "../../components/TableComponent/TableComponent";
 import { columns } from './usersColumns';
@@ -29,6 +30,7 @@ const data = [
 ];
 
 export default function Users() {
+  const navigate = useNavigate()
   return (
     <Box
       display="flex"
@@ -44,7 +46,7 @@ export default function Users() {
         <Button
           type="primary"
           variant="contained"
-          onClick={() => { }}
+          onClick={() => navigate('/users/form')}
         >
           Novo usuário
         </Button>
