@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { Fragment, useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Topbar from '../Topbar/Topbar';
 import Sidebar from '../Sidebar/Sidebar'
 import SignIn from "../../SignIn/SignIn";
@@ -11,6 +11,17 @@ export default function LayoutRender() {
   const auth = useAuth()
   const isLogged = !!auth._id
   const userRoutes = getRoutes(auth)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    function goToFirstRoute(routes) {
+      if (routes) {
+        const firstRoute = routes[0]
+        navigate(firstRoute.path)
+      }
+    }
+    goToFirstRoute(userRoutes)
+  },[userRoutes])
 
   if (isLogged) {
     return (

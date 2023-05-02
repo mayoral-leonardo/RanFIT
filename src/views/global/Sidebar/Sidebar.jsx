@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useAuth } from "../../../hooks/hooks"
 import getRoutes from "../../../routes/functions/routesFunctions"
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar"
@@ -26,13 +26,21 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 
 export default function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false)
-  const [selected, setSelected] = useState("Dashboard")
+  const [selected, setSelected] = useState()
 
   const auth = useAuth()
   const userRoutes = getRoutes(auth)
 
-  console.log(userRoutes)
-
+  useEffect(() => {
+    function setFirstRouteSelected(routes) {
+      if (routes) {
+        const firstRoute = routes[0]
+        setSelected(firstRoute.name)
+      }
+    }
+    setFirstRouteSelected(userRoutes)
+  },[userRoutes])
+  
   return (
     <Box
       sx={{
