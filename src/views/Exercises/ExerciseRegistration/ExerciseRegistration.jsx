@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import { Form, Row, Col, Input } from 'antd'
+import { Form, Row, Col, Input, Select, DatePicker } from 'antd'
 import Header from "../../../components/Header/Header";
 import { Box, Button } from "@mui/material";
 import { useForm } from 'antd/lib/form/Form'
 
-export default function UserForm() {
+export default function ExerciseRegistration() {
   const [form] = useForm()
 
   function handleSubmit(data) {
@@ -25,32 +25,41 @@ export default function UserForm() {
         >
           <Fragment>
             <Header
-              title="Formulário do usuário"
-              subtitle="Insira os dados a seguir para criar um usuário"
+              title="Registro de exercício"
+              subtitle="Insira os dados a seguir para registrar seu exercício"
             />
             <Row gutter={[10, 10]}>
               <Col xs={24} md={8}>
                 <Form.Item
-                  label="Nome"
-                  name="name"
+                  label="Tipo de exercício"
+                  name="exerciseType"
                 >
-                  <Input placeholder="Digite o nome" />
+                  <Select
+                    placeholder="Selecione o tipo de exercício"
+                    options={[
+                      { label: "Bicicleta", value: "bicycle" },
+                      { label: "Esteira", value: "treadmill" }
+                    ]}
+                  />
                 </Form.Item>
               </Col>
               <Col xs={24} md={8}>
                 <Form.Item
-                  label="Email"
-                  name="email"
+                  label="Data do exercício"
+                  name="date"
                 >
-                  <Input placeholder="Digite o email" />
+                  <DatePicker
+                    style={{ width: "100%" }}
+                    placeholder="Selecione a data do exercício"
+                  />
                 </Form.Item>
               </Col>
               <Col xs={24} md={8}>
                 <Form.Item
-                  label="Senha"
-                  name="password"
+                  label="Duração do exercício"
+                  name="duration"
                 >
-                  <Input placeholder="Digite a senha" />
+                  <Input placeholder="Insira a duração do exercício" />
                 </Form.Item>
               </Col>
             </Row>
