@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux"
 
 const mockedUserData = {
   _id: "12345",
-  name: "Usuário",
+  name: "Gerônimo",
   level: "admin"
 }
 

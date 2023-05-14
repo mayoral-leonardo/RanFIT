@@ -7,6 +7,7 @@ import { Box, Typography } from "@mui/material"
 import RunCircleIcon from '@mui/icons-material/RunCircle';
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { Link } from "react-router-dom"
+import { translateLevel } from './../../../utils/functions';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   return (
@@ -59,6 +60,7 @@ export default function Sidebar() {
         "& .pro-menu-item.active": {
           color: "#00FFFF !important"
         }
+
       }}
     >
 
@@ -91,10 +93,10 @@ export default function Sidebar() {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Lorem
+                  {auth.name}
                 </Typography>
                 <Typography variant="h6" color="#FFFFFF">
-                  Admin
+                  {translateLevel(auth)}
                 </Typography>
               </Box>
             </Box>
