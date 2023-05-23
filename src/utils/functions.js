@@ -1,7 +1,7 @@
 export function translateLevel(auth) {
   const translatedLevels = {
     admin: "Administrador",
-    goer: "Frequentador"
+    goer: "Usuário"
   }
 
   return translatedLevels[auth.level]

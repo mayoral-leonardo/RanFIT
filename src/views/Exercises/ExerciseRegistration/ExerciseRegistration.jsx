@@ -1,11 +1,15 @@
-import React, { Fragment } from "react";
-import { Form, Row, Col, Input, Select, DatePicker } from 'antd'
-import Header from "../../../components/Header/Header";
-import { Box, Button } from "@mui/material";
+import React, { Fragment, useState } from "react"
+import { Form, Row, Col, Select, DatePicker } from 'antd'
+import Header from "../../../components/Header/Header"
+import { Box, Button } from "@mui/material"
 import { useForm } from 'antd/lib/form/Form'
+import TimePicker from 'react-time-picker'
+import 'react-time-picker/dist/TimePicker.css';
+import 'react-clock/dist/Clock.css';
 
 export default function ExerciseRegistration() {
   const [form] = useForm()
+  const [time, setTime] = useState("00:00")
 
   function handleSubmit(data) {
     console.log(data)
@@ -59,7 +63,15 @@ export default function ExerciseRegistration() {
                   label="Duração do exercício"
                   name="duration"
                 >
-                  <Input placeholder="Insira a duração do exercício" />
+                    <TimePicker
+                      className="w-100"
+                      onChange={setTime}
+                      value={time}
+                      disableClock
+                      minTime="00:00"
+                      maxTime="05:00"
+                      format="hh:mm"
+                    />
                 </Form.Item>
               </Col>
             </Row>

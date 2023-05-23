@@ -1,2 +1,18 @@
 @import "./views/SignIn/SignIn.css";
 @import "./views/Users/Users.css";
+
+.w-100 {
+  width: 100% !important;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.flex-justify-center {
+  justify-content: center !important;
+}
+
+.flex-align-center {
+  align-items: center !important;
+}
