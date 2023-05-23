@@ -20,7 +20,7 @@ export const columns = [
     key: 'duration',
   },
   {
-    title: 'Action',
+    title: 'Ações',
     key: 'action',
     render: (_, row) => (
       <Space size="middle" onClick={() => console.log(row)}>
