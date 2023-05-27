@@ -1,5 +1,6 @@
 import React from "react"
 import Dashboard from '../views/Dashboard/Dashboard';
+import Leaderboards from '../views/Leaderboards/Leaderboards';
 import PieChartIcon from '@mui/icons-material/PieChart';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 
@@ -16,7 +17,7 @@ const leaderBoards = {
   name: 'Classificação',
   icon: LeaderboardIcon,
   sidebar: true,
-  component: <Dashboard/>
+  component: <Leaderboards/>
 }
 
 export const routes = [

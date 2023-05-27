@@ -1,5 +1,5 @@
 @import "./views/SignIn/SignIn.css";
-@import "./views/Users/Users.css";
+@import "./components/TableComponent/TableComponent.css";
 
 .w-100 {
   width: 100% !important;
