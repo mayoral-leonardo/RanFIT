@@ -17,10 +17,10 @@ export default function SignIn() {
   const [password, setPassword] = useState("")
   const dispatch = useDispatch()
 
-  function handleSignIn() {
+  async function handleSignIn() {
     if (email && password) {
       try {
-        const response = signInConsumer(email, password)
+        const response = await signInConsumer(email, password)
         console.log(response)
         if (response.user) dispatch(authActions.signIn(response.user))
       } catch (error) {
