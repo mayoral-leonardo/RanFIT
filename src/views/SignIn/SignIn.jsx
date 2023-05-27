@@ -21,6 +21,7 @@ export default function SignIn() {
     if (email && password) {
       try {
         const response = signInConsumer(email, password)
+        console.log(response)
         if (response.user) dispatch(authActions.signIn(response.user))
       } catch (error) {
         console.error(error)
