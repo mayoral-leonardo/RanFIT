@@ -6,12 +6,6 @@ import { authActions } from "../../store/modules/auth/authActions"
 import { useDispatch } from "react-redux"
 import signInConsumer from "./consumer"
 
-const mockedUserData = {
-  _id: "12345",
-  name: "Gerônimo",
-  level: "admin"
-}
-
 export default function SignIn() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -21,7 +15,6 @@ export default function SignIn() {
     if (email && password) {
       try {
         const response = await signInConsumer(email, password)
-        console.log(response)
         if (response.user) dispatch(authActions.signIn(response.user))
       } catch (error) {
         console.error(error)
