@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux"
 const mockedUserData = {
   _id: "12345",
   name: "Gerônimo",
-  level: "goer"
+  level: "admin"
 }
 
 export default function SignIn() {

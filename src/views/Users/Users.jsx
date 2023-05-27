@@ -42,7 +42,7 @@ export default function Users() {
         title="Usuários"
         subtitle="Listagem dos usuários cadastrados"
       />
-      <div className="users_button_container">
+      <div className="table_button_container">
         <Button
           type="primary"
           variant="contained"

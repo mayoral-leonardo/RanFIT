@@ -33,7 +33,7 @@ export default function Exercises() {
         title="Exercícios"
         subtitle="Listagem dos exercícios registrados"
       />
-      <div className="users_button_container">
+      <div className="table_button_container">
         <Button
           type="primary"
           variant="contained"
