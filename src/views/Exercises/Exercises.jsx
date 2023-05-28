@@ -5,16 +5,18 @@ import TableComponent from "../../components/TableComponent/TableComponent";
 import { columns } from './exercisesColumns';
 import Header from './../../components/Header/Header';
 import exercises from "./consumer";
+import { useAuth } from './../../hooks/hooks';
 
 export default function Exercises() {
   const navigate = useNavigate()
+  const auth = useAuth()
 
   const [data, setData] = useState()
 
   useEffect(() => {
     async function getExercises () {
       try {
-        const response = await exercises.getAll()
+        const response = await exercises.getAll(auth._id)
         if (response.exercises) setData(response.exercises)
       } catch (error) {
         console.error(error)

@@ -1,9 +1,9 @@
 import api from "../../services/api";
 
 const exercises = {
-  getAll: async () => {
+  getAll: async (id) => {
     try {
-      const response = await api.get("/exercises")
+      const response = await api.post("/exercises", { userId: id })
       return response.data
     } catch (error) {
       console.error(error)
@@ -11,7 +11,7 @@ const exercises = {
   },
   register: async (data) => {
     try {
-      const response = await api.post("/exercise",  data )
+      const response = await api.post("/exercise", data)
       return response.data
     } catch (error) {
       console.error(error)
