@@ -8,10 +8,12 @@ import { timeAsDayjs } from "../../../utils/functions"
 import exercises from "../consumer"
 import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
+import { useAuth } from './../../../hooks/hooks';
 
 export default function ExerciseRegistration() {
   const [form] = useForm()
   const navigate = useNavigate()
+  const auth = useAuth()
 
   const [loading, setLoading] = useState()
   const [time, setTime] = useState()
@@ -40,7 +42,7 @@ export default function ExerciseRegistration() {
     const submitData = { ...data, date: formattedDate, time, distance }
 
     try {
-      const response = await exercises.register(submitData)
+      const response = await exercises.register({...submitData, userId: auth._id})
       if (response.status === "OK") navigate("/exercises")
     } catch (error) {
       console.error(error)
