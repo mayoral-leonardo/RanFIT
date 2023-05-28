@@ -1,13 +1,22 @@
 import React from "react"
 import { Space } from 'antd';
 
+function translateExerciseTypes (type) {
+  if (!type) return "N/A"
+  const translatedTypes = {
+    "bicycle": "Bicicleta",
+    "treadmill": "Esteira"
+  }
+
+  return translatedTypes[type]
+}
 
 export const columns = [
   {
     title: 'Tipo',
     dataIndex: 'type',
     key: 'type',
-    render: (text) => <a>{text}</a>,
+    render: (type) => translateExerciseTypes(type),
   },
   {
     title: 'Data',
