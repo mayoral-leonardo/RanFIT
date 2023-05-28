@@ -5,8 +5,8 @@ import { Space } from 'antd';
 export const columns = [
   {
     title: 'Tipo',
-    dataIndex: 'exerciseType',
-    key: 'exerciseType',
+    dataIndex: 'type',
+    key: 'type',
     render: (text) => <a>{text}</a>,
   },
   {
@@ -16,8 +16,18 @@ export const columns = [
   },
   {
     title: 'Duração',
-    dataIndex: 'duration',
-    key: 'duration',
+    dataIndex: 'time',
+    key: 'time',
+  },
+  {
+    title: 'Distância em metros',
+    dataIndex: 'distance',
+    key: 'distance',
+  },
+  {
+    title: 'Pontos',
+    dataIndex: 'pointsPerExercise',
+    key: 'pointsPerExercise',
   },
   {
     title: 'Ações',
