@@ -7,17 +7,21 @@ import { useDispatch } from "react-redux"
 import signInConsumer from "./consumer"
 
 export default function SignIn() {
+  const [loading, setLoading] = useState()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const dispatch = useDispatch()
 
   async function handleSignIn() {
     if (email && password) {
+      setLoading(true)
       try {
         const response = await signInConsumer(email, password)
         if (response.user) dispatch(authActions.signIn(response.user))
       } catch (error) {
         console.error(error)
+      } finally {
+        setLoading(false)
       }
     }
   }
@@ -65,6 +69,7 @@ export default function SignIn() {
               type="primary"
               variant="contained"
               onClick={() => handleSignIn()}
+              disabled={loading}
             >
               Entrar
             </Button>
