@@ -1,6 +1,11 @@
 import React, { useState } from "react"
 import { ReactComponent as LogoIcon } from '../../assets/img/icon-logo.svg'
 import { Box, Button, InputLabel, TextField } from "@mui/material"
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputAdornment from '@mui/material/InputAdornment'
+import IconButton from '@mui/material/IconButton'
+import Visibility from '@mui/icons-material/Visibility'
+import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Header from "../../components/Header/Header"
 import { authActions } from "../../store/modules/auth/authActions"
 import { useDispatch } from "react-redux"
@@ -11,6 +16,7 @@ export default function SignIn() {
   const [loading, setLoading] = useState()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
   const dispatch = useDispatch()
 
   async function handleSignIn() {
@@ -63,12 +69,25 @@ export default function SignIn() {
                 onChange={value => setEmail(value.target.value)}
               />
               <InputLabel htmlFor="password-input" style={{ fontWeight: "bold" }}>Senha</InputLabel>
-              <TextField
+              <OutlinedInput
                 className="signin_form_input"
                 id="password-input"
                 variant="outlined"
                 style={{ marginTop: "10px" }}
                 onChange={value => setPassword(value.target.value)}
+                type={showPassword ? 'text' : 'password'}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={() => setShowPassword(!showPassword)}
+                      onMouseDown={event => event.preventDefault()}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
               />
             </div>
             <Button
