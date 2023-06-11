@@ -5,6 +5,7 @@ import Header from "../../components/Header/Header"
 import { authActions } from "../../store/modules/auth/authActions"
 import { useDispatch } from "react-redux"
 import signInConsumer from "./consumer"
+import { toast } from "react-toastify"
 
 export default function SignIn() {
   const [loading, setLoading] = useState()
@@ -13,17 +14,22 @@ export default function SignIn() {
   const dispatch = useDispatch()
 
   async function handleSignIn() {
-    if (email && password) {
-      setLoading(true)
-      try {
-        const response = await signInConsumer(email, password)
-        if (response.user) dispatch(authActions.signIn(response.user))
-      } catch (error) {
-        console.error(error)
-      } finally {
-        setLoading(false)
-      }
+    if (!email || !password) {
+      toast.error('Preencha os dados corretamente!')
+      return
     }
+
+    setLoading(true)
+    try {
+      const response = await signInConsumer(email, password)
+      if (response.user) dispatch(authActions.signIn(response.user))
+    } catch (error) {
+      console.error(error)
+      toast.error('Ocorreu um erro! Verifique as informações fornecidas e tente novamente.')
+    } finally {
+      setLoading(false)
+    }
+
   }
 
   return (
