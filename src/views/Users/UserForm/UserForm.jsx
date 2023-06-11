@@ -1,15 +1,29 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Form, Row, Col, Input } from 'antd'
 import Header from "../../../components/Header/Header";
 import { Box, Button } from "@mui/material";
 import { useForm } from 'antd/lib/form/Form'
+import users from "../consumer";
 
 export default function UserForm() {
   const [form] = useForm()
+  const [loading, setLoading] = useState()
+  const navigate = useNavigate()
 
-  function handleSubmit(data) {
-    console.log(data)
+  async function handleSubmit(data) {
+    setLoading(true)
+
+    try {
+      const response = await users.register(data)
+      if (response === "Registro salvo com sucesso") navigate("/users")
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoading(false)
+    }
   }
+  
   return (
     <Box
       display="flex"
@@ -58,6 +72,7 @@ export default function UserForm() {
               type="primary"
               variant="contained"
               onClick={() => form.submit()}
+              disabled={loading}
             >
               Criar
             </Button>

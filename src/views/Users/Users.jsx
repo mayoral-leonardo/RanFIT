@@ -1,36 +1,29 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { useNavigate  } from 'react-router-dom'
 import { Box, Button } from "@mui/material";
 import TableComponent from "../../components/TableComponent/TableComponent";
 import { columns } from './usersColumns';
+import users from "./consumer";
 import Header from './../../components/Header/Header';
-
-const data = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sydney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  },
-];
 
 export default function Users() {
   const navigate = useNavigate()
+
+  const [data, setData] = useState()
+
+  useEffect(() => {
+    async function getUsers () {
+      try {
+        const response = await users.getAll()
+        if (response.users) setData(response.users)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    getUsers()
+  },[])
+
   return (
     <Box
       display="flex"
