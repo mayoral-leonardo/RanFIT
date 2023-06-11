@@ -9,6 +9,7 @@ import exercises from "../consumer"
 import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
 import { useAuth } from './../../../hooks/hooks';
+import { toast } from "react-toastify"
 
 export default function ExerciseRegistration() {
   const [form] = useForm()
@@ -41,9 +42,21 @@ export default function ExerciseRegistration() {
     const formattedDate = timeAsDayjs(date).format("DD/MM/YYYY")
     const submitData = { ...data, date: formattedDate, time, distance }
 
+    if (!submitData.type || !submitData.date || !submitData.time || !submitData.distance){
+      toast.warning("Preencha todos os dados corretamente!")
+      setLoading(false)
+      return
+    }
+
+    if (submitData.time && !submitData.time.includes(":")){
+      toast.warning("Duração inválida! Insira 4 dígitos")
+      setLoading(false)
+      return
+    }
+
     try {
       const response = await exercises.register({...submitData, userId: auth._id})
-      if (response.status === "OK") navigate("/exercises")
+      if (response === "Registro salvo com sucesso") navigate("/exercises")
     } catch (error) {
       console.error(error)
     } finally {

@@ -22,6 +22,7 @@ export default function Exercises() {
         console.error(error)
       }
     }
+    
     getExercises()
   },[])
 
