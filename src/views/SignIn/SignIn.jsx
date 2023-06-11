@@ -9,7 +9,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Header from "../../components/Header/Header"
 import { authActions } from "../../store/modules/auth/authActions"
 import { useDispatch } from "react-redux"
-import signInConsumer from "./consumer"
+import {signInConsumer} from "./consumer"
 import { toast } from "react-toastify"
 
 export default function SignIn() {

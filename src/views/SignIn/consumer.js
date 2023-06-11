@@ -1,6 +1,6 @@
 import api from "../../services/api";
 
-const signInConsumer = async (email, password) => {
+export const signInConsumer = async (email, password) => {
   try {
     const response = await api.post("/login", { email, password })
     return response.data
@@ -9,4 +9,13 @@ const signInConsumer = async (email, password) => {
   }
 }
 
-export default signInConsumer
+export const signOutConsumer = async (email, password) => {
+  try {
+    const response = await api.post("/logout", { email, password })
+    return response.data
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+signInConsumer
