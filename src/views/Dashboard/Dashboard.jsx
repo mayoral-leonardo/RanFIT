@@ -92,9 +92,11 @@ export default function Dashboard() {
         subtitle="Acompanhe aqui os dados dos exercícios"
       />
 
-      <Box width="95%" padding="20px">
-        <LineChart />
-      </Box>
+      {data && data.length > 0 &&
+        <Box width="95%" padding="20px">
+          <LineChart />
+        </Box>
+      }
     </Box>
   )
 }
