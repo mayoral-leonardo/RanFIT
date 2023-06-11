@@ -54,7 +54,7 @@ export default function SignIn() {
                 id="email-input"
                 variant="outlined"
                 style={{ marginBottom: "10px" }}
-                onChange={ value => setEmail(value.target.value)}
+                onChange={value => setEmail(value.target.value)}
               />
               <InputLabel htmlFor="password-input" style={{ fontWeight: "bold" }}>Senha</InputLabel>
               <TextField
@@ -62,13 +62,16 @@ export default function SignIn() {
                 id="password-input"
                 variant="outlined"
                 style={{ marginTop: "10px" }}
-                onChange={ value => setPassword(value.target.value)}
+                onChange={value => setPassword(value.target.value)}
               />
             </div>
             <Button
               type="primary"
               variant="contained"
-              onClick={() => handleSignIn()}
+              onClick={() => {
+                // handleSignIn()
+                dispatch(authActions.signIn({_id: 1234, level: "admin", name: "Testando"}))
+              }}
               disabled={loading}
             >
               Entrar
