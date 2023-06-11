@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Box } from "@mui/material"
 import { Line } from '@ant-design/plots';
 import Header from "../../components/Header/Header"
@@ -43,7 +43,11 @@ const testData = [
 ];
 
 export default function Dashboard() {
-  const [data, setData] = useState(testData)
+  const [data, setData] = useState()
+
+  useEffect(() => {
+    setData(testData)
+  },[])
 
   const LineChart = () => {
     const config = {

@@ -69,8 +69,7 @@ export default function SignIn() {
               type="primary"
               variant="contained"
               onClick={() => {
-                // handleSignIn()
-                dispatch(authActions.signIn({_id: 1234, level: "admin", name: "Testando"}))
+                handleSignIn()
               }}
               disabled={loading}
             >
