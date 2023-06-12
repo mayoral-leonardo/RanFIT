@@ -5,7 +5,7 @@ const exercises = {
   getAll: async (id) => {
     try {
       const response = await api.post("/exercises", { userId: id })
-      return response.data
+      return response.data.data
     } catch (error) {
       toast.error(error.response.data)
     }
