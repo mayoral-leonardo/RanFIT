@@ -8,13 +8,13 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.extend(isToday)
 
-export function translateLevel(auth) {
+export function translateLevel(level) {
   const translatedLevels = {
     admin: "Administrador",
     goer: "Usuário"
   }
 
-  return translatedLevels[auth.level]
+  return translatedLevels[level]
 }
 
 export function timeAsDayjs (value = new Date(), options) {

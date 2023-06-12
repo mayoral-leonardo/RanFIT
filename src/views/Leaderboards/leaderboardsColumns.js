@@ -14,8 +14,8 @@ export const columns = [
   },
   {
     title: 'Pontuação',
-    dataIndex: 'score',
-    key: 'score',
-    render: (_, row) => <span>{row.score} pontos</span>
+    dataIndex: 'points',
+    key: 'points',
+    render: (_, row) => <span>{row.points} pontos</span>
   },
 ];

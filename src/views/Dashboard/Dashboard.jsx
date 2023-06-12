@@ -5,40 +5,28 @@ import Header from "../../components/Header/Header"
 
 const testData = [
   {
-    year: '1991',
-    value: 3,
+    mês: 'Janeiro',
+    valor: 3,
   },
   {
-    year: '1992',
-    value: 4,
+    mês: 'Fevereiro',
+    valor: 1,
   },
   {
-    year: '1993',
-    value: 3.5,
+    mês: 'Março',
+    valor: 4,
   },
   {
-    year: '1994',
-    value: 5,
+    mês: 'Abril',
+    valor: 4.5,
   },
   {
-    year: '1995',
-    value: 4.9,
+    mês: 'Maio',
+    valor: 3,
   },
   {
-    year: '1996',
-    value: 6,
-  },
-  {
-    year: '1997',
-    value: 7,
-  },
-  {
-    year: '1998',
-    value: 9,
-  },
-  {
-    year: '1999',
-    value: 13,
+    mês: 'Junho',
+    valor: 4.6,
   },
 ];
 
@@ -52,8 +40,8 @@ export default function Dashboard() {
   const LineChart = () => {
     const config = {
       data,
-      xField: 'year',
-      yField: 'value',
+      xField: 'mês',
+      yField: 'valor',
       label: {},
       point: {
         size: 5,

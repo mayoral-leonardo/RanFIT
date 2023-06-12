@@ -96,7 +96,7 @@ export default function Sidebar() {
                   {auth.name}
                 </Typography>
                 <Typography variant="h6" color="#FFFFFF">
-                  {translateLevel(auth)}
+                  {translateLevel(auth.level)}
                 </Typography>
               </Box>
             </Box>
