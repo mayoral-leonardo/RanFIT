@@ -9,7 +9,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Header from "../../components/Header/Header"
 import { authActions } from "../../store/modules/auth/authActions"
 import { useDispatch } from "react-redux"
-import {signInConsumer} from "./consumer"
+import { signInConsumer } from "./consumer"
 import { toast } from "react-toastify"
 
 export default function SignIn() {
@@ -28,7 +28,10 @@ export default function SignIn() {
     setLoading(true)
     try {
       const response = await signInConsumer(email, password)
-      if (response.user) dispatch(authActions.signIn(response.user))
+      if (response.user) {
+        localStorage.setItem("loggedUser", JSON.stringify(response.user))
+        dispatch(authActions.signIn(response.user))
+      }
     } catch (error) {
       console.error(error)
       toast.error('Ocorreu um erro! Verifique as informações fornecidas e tente novamente.')

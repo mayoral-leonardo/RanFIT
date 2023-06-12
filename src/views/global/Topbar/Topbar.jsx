@@ -26,6 +26,7 @@ export default function Topbar() {
       const response = await signOutConsumer()
       if (response) {
         dispatch(authActions.signOut())
+        localStorage.removeItem("loggedUser")
         navigate("/")
       }
     } catch (error) {
