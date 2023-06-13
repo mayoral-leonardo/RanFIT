@@ -66,7 +66,6 @@ export default function Topbar() {
             'aria-labelledby': 'basic-button',
           }}
         >
-          <MenuItem style={{ fontWeight: "bold" }} onClick={handleClose}>Meu perfil</MenuItem>
           <MenuItem style={{ fontWeight: "bold" }} onClick={handleSignOut}>Sair <LogoutIcon style={{ marginLeft: "5" }} /></MenuItem>
         </Menu>
       </Box>
